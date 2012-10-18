@@ -61,8 +61,9 @@ BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_CMDLINE := console=ttySAC2,115200 consoleblank=0
 
 # Kernel Config
-TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
-TARGET_KERNEL_CONFIG := cyanogenmod_d710_defconfig
+#TARGET_KERNEL_SOURCE := kernel/samsung/smdk4210
+#TARGET_KERNEL_CONFIG := cyanogenmod_d710_defconfig
+TARGET_PREBUILT_KERNEL := device/samsung/d710/kernel
 
 # Filesystem
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -176,3 +177,25 @@ TARGET_OTA_ASSERT_DEVICE := d710,SPH-D710,epic4gtouch
 -include vendor/samsung/d710/BoardConfigVendor.mk
 
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/d710/shbootimg.mk
+
+#TWRP Config:
+DEVICE_RESOLUTION := 480x800
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_NO_REBOOT_BOOTLOADER := true
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_FLASH_FROM_STORAGE := true
+TW_INCLUDE_INJECTTWRP := false
+TW_HAS_DOWNLOAD_MODE := true
+#TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p10"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "noauto_da_alloc"
+TW_CRYPTO_FS_FLAGS := "0x00000406"
+TW_CRYPTO_KEY_LOC := "/efs/metadata"
+TW_INCLUDE_INJECTTWRP := true
+
